@@ -14,10 +14,8 @@ class playerName<T>
    {
       return playerName;
    }
-   public String toString() {
-
-        String result = "";
-        result += playerName.getClass();
-        return result;
+   public String toString() 
+   {
+      return playerName.toString();
     }
 }
