@@ -1,0 +1,30 @@
+import java.util.ArrayList;
+
+
+public class Hand {
+    private ArrayList<PlayingCard> myList;
+ 
+    Hand() {
+        myList = new ArrayList<PlayingCard>();
+    }
+ 
+    public int numberOfCards() {
+        return myList.size();
+    }
+ 
+    public Object nthCard(int n){
+        return myList.get(n);
+    }
+ 
+    public  void print(){
+        String hand = "";
+        for (PlayingCard obj : myList){
+            hand+= obj+"\n";
+        }
+        System.out.println(hand);
+    }
+ 
+    public void addCard(PlayingCard object){
+        myList.add(object);
+    }
+}
