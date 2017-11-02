@@ -1,0 +1,119 @@
+import java.util.Scanner;
+
+
+public class PlayingCard {
+
+	//Symbols
+	private int suit;
+	//Card worth
+	private int value;
+
+	//static variables
+	public static final int ACE = 1;
+	public static final int KING = 13;
+	public static final int QUEEN = 12;
+	public static final int JACK = 11;
+
+	public static final int HEARTS = 1;
+	public static final int  SPADES = 2;
+	public static final int  CLUBS = 3;
+	public static final int  DIAMONDS = 4;
+
+	private static boolean random = true;
+
+	//constructor
+	public PlayingCard(int suit, int value) {
+		this.suit = suit;
+		this.value = value;
+
+	}
+	//Parsing string to int 
+	public PlayingCard() {
+		Scanner s1 = new Scanner(System.in);
+		String newS;
+		String newV;
+		if (random == true) {
+			suit = 1 + (int)(Math.random())* ((4-1)+1);
+			value = 1+ (int)(Math.random()) * ((13-1)+1);
+
+		}
+		else {
+			System.out.println("Enter a Suit: ");
+			newS = s1.nextLine();
+			suit = Integer.parseInt(newS);
+			System.out.println("Enter face Value: ");
+			newV = s1.nextLine();
+			value = Integer.parseInt(newV);
+			s1.close();
+			
+			
+		}
+		/*else {
+			Scanner suit1 = new Scanner(System.in);
+			System.out.print("What do you want the suit to be? HEARTS, SPADES, CLUBS, OR DIAMONDS: ");
+			String getSuit;
+			getSuit = suit1.nextLine();
+
+			switch (getSuit) {
+			case "HEARTS":
+				suit = 1;
+				break;
+			case "SPADES":
+				suit = 2;
+				break;
+			case "CLUBS":
+				suit = 3;
+				break;
+			case "DIAMONDS":
+				suit = 4;
+				break;
+
+			}
+			Scanner value1 = new Scanner(System.in);
+			System.out.println("What value do you want? 2-10 or ACE, JACK,QUEEN, OR KING");
+
+
+		}*/
+	}
+
+	public int getSUit() {
+		return suit;
+	}
+
+	public int getValue() {
+		return value;
+	}
+
+	public static void setRandom(boolean argument) {
+		random = argument;
+	}
+
+	public String toString() {
+		String name = "";
+		if ((value>=2) && (value <=10)){
+			name+=value;
+		} else if (value ==1){
+			name+="ACE";
+		} else if (value==11){
+			name+="JACK";
+		} else if (value ==12){
+			name+="QUEEN";
+		} else {
+			name+="KING";
+		}
+
+		name+=" ";
+
+		if (suit ==1){
+			name+="HEARTS";
+		} else if (suit==2){
+			name+="SPADES";
+		} else if (suit==3){
+			name+="CLUBS";
+		} else {
+			name+="DIAMONDS";
+		}
+		return name; 
+	}
+}
+
