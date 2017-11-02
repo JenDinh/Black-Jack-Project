@@ -1,0 +1,23 @@
+class playerName<T>
+{
+   private T playerName;
+   
+   public playerName(T playerName) 
+    {
+        this.playerName = playerName;
+    }
+   public void setplayerName(T playerName)
+   {
+      this.playerName = playerName;
+   }
+   public T getplayerName()
+   {
+      return playerName;
+   }
+   public String toString() {
+
+        String result = "";
+        result += playerName.getClass();
+        return result;
+    }
+}
