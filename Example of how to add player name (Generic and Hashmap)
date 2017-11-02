@@ -1,0 +1,17 @@
+import java.util.*;
+
+public class Test
+{
+   public static void main(String[] args)
+   {
+      playerName player1 = new playerName("Sarah");
+      AddingPlayerScore(player1);
+   }
+   public static <T> void AddingPlayerScore(playerName player1)
+   {
+      Map<Integer, playerName> highscorelist = new HashMap<Integer, playerName>();
+      highscorelist.put(1, player1); 
+      System.out.println("High Score List: " );
+      System.out.println(highscorelist);
+   }
+}
