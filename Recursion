@@ -1,0 +1,27 @@
+//Just an example of how we can execute it. We would need different if else statements in the recursion method. 
+
+import java.util.*;
+
+public class recursion
+{
+   public static void main(String[] args) 
+   {
+      int x = 0;
+      Scanner input = new Scanner(System.in);
+      int i = input.nextInt();
+      congrats(i, x);
+   }
+   public static void congrats(int i, int x)
+   {     
+      x++; 
+      if (i == 1 && x!=4)
+      {
+         System.out.println("You win!");
+         congrats(i, x);
+      }
+      else
+      {
+         System.out.println("Play again?");
+      }
+   }
+}
