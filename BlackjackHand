@@ -1,0 +1,47 @@
+
+public class BlackjackHand extends Hand{
+
+	//Will have access to all methods for Hand
+	
+	private int handValue; //Int value of the hand
+	private boolean soft; //whether value is soft or hard
+
+	private void computeValue() {
+		//Compute the value of the hand and set the soft & handValue variables.
+
+		handValue = 0;
+		soft = false;
+		boolean aces = false;
+		//If the card is a face card i.e. King, queen, or jack
+		for(int i = 0; i < numberOfCards();i++) {
+			if( ((PlayingCard) nthCard(i)).getValue()>10){
+				handValue+=10;	
+			}
+			else {
+				//Add the card's face value to hand if not face card.
+				handValue+=((PlayingCard) nthCard(i)).getValue();
+				//If the card is an ace
+				if (((PlayingCard) nthCard(i)).getValue()==1) {
+					aces = true;
+				}
+			}
+		}
+		if (aces && handValue <12) {
+			handValue+=10;
+			soft=true;
+		}
+	}
+	//return values
+	public void addCard(PlayingCard card) {
+		super.addCard(card);
+	}
+	public int handValue() {
+		computeValue();
+		return handValue;
+		
+	}
+	public boolean soft() {
+		return soft;
+	}
+
+}
