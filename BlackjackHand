@@ -2,7 +2,7 @@
 public class BlackjackHand extends Hand{
 
 	//Will have access to all methods for Hand
-	
+
 	private int handValue; //Int value of the hand
 	private boolean soft; //whether value is soft or hard
 
@@ -33,12 +33,13 @@ public class BlackjackHand extends Hand{
 	}
 	//return values
 	public void addCard(PlayingCard card) {
-		super.addCard(card);
+		super.addCard(card); //Specialize the addCard.
 	}
+	//Return value of hand and if value is soft 
 	public int handValue() {
 		computeValue();
 		return handValue;
-		
+
 	}
 	public boolean soft() {
 		return soft;
