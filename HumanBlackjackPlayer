@@ -1,0 +1,76 @@
+import java.util.Scanner;
+
+
+
+public class HumanBlackjackPlayer extends BlackjackPlayer { 
+    public boolean hit(BlackjackHand dealerHand, BlackjackHand playerHand) {
+        Scanner sora = new Scanner (System.in);
+        String answer;
+            System.out.print("Dealer:\n");
+            dealerHand.print();
+            System.out.print("Player:\n");
+            playerHand.print();
+ 
+            System.out.print("Do you want to hit? (Yes/No): ");
+            answer = sora.next();
+            System.out.print("\n");
+            
+            //If user doesn't give recognized answer
+            
+            while (!answer.equalsIgnoreCase("yes") && !answer.equalsIgnoreCase("no")){
+                System.out.println("Answer not recognized.");
+                System.out.print("Do you want to hit? (Yes/No): ");
+                answer = sora.next();
+            }
+ 
+            if (answer.equalsIgnoreCase("yes")){
+                System.out.print("\n");
+                return true;
+            }
+        return false;
+    }
+     
+    //Print both dealer and players hand; output of hands 
+    public void dealerHit(BlackjackHand dealerHand) {
+        System.out.print("Dealer:\n");
+        dealerHand.print();
+        System.out.println("The dealer hit.\n");
+    }
+ 
+    public void playerBusts(BlackjackHand playerHand) {
+        System.out.print("Player:\n");
+        playerHand.print();
+        System.out.println("You busted.\n");
+    }
+ 
+    public void playerTies(BlackjackHand playerHand, BlackjackHand dealerHand) {
+        System.out.print("Dealer:\n");
+        dealerHand.print();
+        System.out.print("Player:\n");
+        playerHand.print();
+        System.out.println("You tied the dealer.\n");
+    }
+ 
+    public void playerWins(BlackjackHand playerHand, BlackjackHand dealerHand) {
+        System.out.print("Dealer:\n");
+        dealerHand.print();
+        System.out.print("Player:\n");
+        playerHand.print();
+        System.out.println("You win.\n");
+    }
+     
+    public void dealerBusts(BlackjackHand dealerHand) {
+        System.out.print("Dealer:\n");
+        dealerHand.print();
+        System.out.println("Dealer bust.\n");
+    }
+ 
+    public void dealerWins(BlackjackHand dealerHand, BlackjackHand playerHand) {
+        System.out.print("Dealer:\n");
+        dealerHand.print();
+        System.out.print("Player:\n");
+        playerHand.print();
+        System.out.println("Dealer wins.\n");
+    }
+ 
+}
