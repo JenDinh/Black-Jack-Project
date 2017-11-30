@@ -1,5 +1,6 @@
 public class ComputerBlackjackPlayer extends BlackjackPlayer{
-    private BlackjackStrategy pass;
+	//Using blackjackhand class to figure out hand val of hands thats passed or valu is soft
+	private BlackjackStrategy pass;
  
     ComputerBlackjackPlayer(BlackjackStrategy theStrategy){
         pass = theStrategy;
@@ -9,6 +10,7 @@ public class ComputerBlackjackPlayer extends BlackjackPlayer{
         return pass.hit(playerHand.handValue(), dealerHand.handValue(), playerHand.soft());
     }
  
+    	//Implements method  in BlackjackPlayer
     public void dealerHit(BlackjackHand dealerHand) {       
     }
     public void playerBusts(BlackjackHand playerHand) {
