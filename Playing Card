@@ -19,7 +19,7 @@ public class PlayingCard {
 	public static final int  CLUBS = 3;
 	public static final int  DIAMONDS = 4;
 
-	private static boolean random = true;
+	private static boolean random = true; //constructor detail; allocates obj representing valu arg
 
 	//constructor
 	public PlayingCard(int suit, int value) {
@@ -29,51 +29,31 @@ public class PlayingCard {
 	}
 	//Parsing string to int 
 	public PlayingCard() {
-		Scanner s1 = new Scanner(System.in);
+		/* Scanner s1 = new Scanner(System.in);
 		String newS;
 		String newV;
+		*/
 		if (random == true) {
-			suit = 1 + (int)(Math.random())* ((4-1)+1);
-			value = 1+ (int)(Math.random()) * ((13-1)+1);
+			suit = 1 + (int)((Math.random())* (double)((4-1)+1));
+			value = 1+ (int)((Math.random()) * (double)((13-1)+1));
+			//System.out.println("Random Item:" +suit + "|" + value);
 
 		}
-		else {
-			System.out.println("Enter a Suit: ");
+		
+		/* else {
+			System.out.println("Enter a Suit (HEARTS, SPADES, CLUBS, OR DIAMONDS): ");
 			newS = s1.nextLine();
 			suit = Integer.parseInt(newS);
-			System.out.println("Enter face Value: ");
+			System.out.println("Enter face Value ( ACE, JACK, QUEEN, KING): ");
 			newV = s1.nextLine();
 			value = Integer.parseInt(newV);
 			s1.close();
 			
+			System.out.println("Error");
 			
-		}
-		/*else {
-			Scanner suit1 = new Scanner(System.in);
-			System.out.print("What do you want the suit to be? HEARTS, SPADES, CLUBS, OR DIAMONDS: ");
-			String getSuit;
-			getSuit = suit1.nextLine();
-
-			switch (getSuit) {
-			case "HEARTS":
-				suit = 1;
-				break;
-			case "SPADES":
-				suit = 2;
-				break;
-			case "CLUBS":
-				suit = 3;
-				break;
-			case "DIAMONDS":
-				suit = 4;
-				break;
-
-			}
-			Scanner value1 = new Scanner(System.in);
-			System.out.println("What value do you want? 2-10 or ACE, JACK,QUEEN, OR KING");
-
-
-		}*/
+		} 
+	
+	*/ 
 	}
 
 	public int getSUit() {
