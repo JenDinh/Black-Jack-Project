@@ -8,15 +8,15 @@ public class Hand {
         myList = new ArrayList<PlayingCard>();
     }
  
-    public int numberOfCards() {
+    public int numberOfCards() { //Returns number of cards in the hand as int
         return myList.size();
     }
  
-    public Object nthCard(int n){
+    public Object nthCard(int n){ //Takes int argument N, returns the nth card in hand as instance of PlayingCard
         return myList.get(n);
     }
  
-    public  void print(){
+    public  void print(){ //print all cards in hand
         String hand = "";
         for (PlayingCard obj : myList){
             hand+= obj+"\n";
@@ -24,7 +24,7 @@ public class Hand {
         System.out.println(hand);
     }
  
-    public void addCard(PlayingCard object){
+    public void addCard(PlayingCard object){ //Add card to hand; adds playing card to ArrayList
         myList.add(object);
     }
 }
