@@ -1,6 +1,6 @@
 
 public class BlackjackDealer {
-
+//Ends up becoming strategy analyzer
 
 	public double playBlackjack(BlackjackPlayer player, int numGames){
 		double avg=0; //player's score / # of games;
