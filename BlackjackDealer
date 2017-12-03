@@ -1,11 +1,13 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class BlackjackDealer {
-//Ends up becoming strategy analyzer
+	//Ends up becoming strategy analyzer
 
-	public double playBlackjack(BlackjackPlayer player, int numGames){
+	public double playBlackjack(BlackjackPlayer player, int numGames, playerName<?> playerName){
 		double avg=0; //player's score / # of games;
 
-		for (int i=0; i<numGames; i++){
+		for (int i=0; i<numGames;){
 			BlackjackHand dealer = new BlackjackHand();
 			BlackjackHand playerHand = new BlackjackHand();
 			PlayingCard card = new PlayingCard();
@@ -17,12 +19,12 @@ public class BlackjackDealer {
 			playerHand.addCard(card);
 			playerHand.addCard(card2);
 
-			while (playerHand.handValue()<=21 && player.hit(dealer, playerHand) ){
+			while (playerHand.handValue()<=21 && player.hit(dealer, playerHand, playerName) ){
 				card = new PlayingCard();
 				playerHand.addCard(card);
 				if (playerHand.handValue()>21){ // player bust 
-					player.playerBusts(playerHand);
-					player.dealerWins(dealer, playerHand);
+					player.playerBusts(playerHand, playerName);
+					player.dealerWins(dealer, playerHand, playerName);
 
 				}
 			}
@@ -34,24 +36,24 @@ public class BlackjackDealer {
 					player.dealerHit(dealer);
 					if (dealer.handValue()>21){ // dealer bust 
 						player.dealerBusts(dealer);
-						player.playerWins(playerHand, dealer);
+						player.playerWins(playerHand, dealer, playerName);
 					}
 				}
 				// if player wins
 				if ( (playerHand.handValue()==21) && (dealer.handValue()<21) ) {
-					player.playerWins(playerHand, dealer);
+					player.playerWins(playerHand, dealer, playerName);
 				}  else if ( (dealer.handValue()<21) && (playerHand.handValue() > dealer.handValue()) ){
-					player.playerWins(playerHand, dealer);
+					player.playerWins(playerHand, dealer, playerName);
 				}
 				// if dealer wins
 				if ( (dealer.handValue()==21) && (playerHand.handValue()<21)) {
-					player.dealerWins(dealer, playerHand);
+					player.dealerWins(dealer, playerHand, playerName);
 				} else if ( (dealer.handValue() <21) && (dealer.handValue() > playerHand.handValue()) ){
-					player.dealerWins(dealer, playerHand);
+					player.dealerWins(dealer, playerHand, playerName);
 				}
 				// if tie
 				if ( (playerHand.handValue()<=21) && (playerHand.handValue() == dealer.handValue())){
-					player.playerTies(playerHand, dealer);
+					player.playerTies(playerHand, dealer, playerName);
 				}
 			}
 
@@ -63,7 +65,37 @@ public class BlackjackDealer {
 			if (dealer.handValue()==playerHand.handValue()){
 				avg+=.5;
 			} 
-			//          System.out.println("--------------------------");
+
+			Scanner input = new Scanner(System.in);
+			String answer;
+			String answerX = "No";
+			String answerY = "Yes";
+
+
+
+			//Exception method
+			while(true) {
+				try {
+					System.out.print("Would you like to continue? (Press Yes or No to stop):");
+					answer = input.nextLine();
+
+
+					if (answer.equalsIgnoreCase(answerX)) {
+						System.exit(0);
+					} else if (answer.equalsIgnoreCase(answerY)) {
+						continue;
+					} else if ((!answer.equals(answerX) && (!answer.equals(answerY)))) {
+						throw new InputMismatchException(answer);
+					}
+				} catch (InputMismatchException e) {
+					System.out.println("Not a valid input; game will exit");
+					System.out.println(" ");
+					return 0;
+
+
+				}
+			}
+
 		}
 		return avg/numGames;
 	}
