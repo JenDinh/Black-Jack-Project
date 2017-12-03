@@ -1,18 +1,28 @@
+
+import java.util.*;
 public class playBlackjack {
  
     public static void main(String[] args) {
- 
-        BlackjackDealer play = new BlackjackDealer();
+
+    	Scanner input = new Scanner(System.in);
+    	BlackjackDealer play = new BlackjackDealer();
         HumanBlackjackPlayer player = new HumanBlackjackPlayer();
-      
-           
         
-       MySimpleStrategy test = new MySimpleStrategy(); 
-       ComputerBlackjackPlayer player2 = new ComputerBlackjackPlayer(test);
-         
-        System.out.println("Score: "+play.playBlackjack(player, 10));
+        countdown.countdown();
+        System.out.println("Enter your username:");
+        String username = input.nextLine();
+        playerName<String> user = new playerName<String>(username);
+        playerboard position = new playerboard();
+     
+                 
+        System.out.println("Score: "+play.playBlackjack(player, 10000, user));
         
-         
+        position.playerboard(user);
     }
+
+	private static void AddingPlayerScore(playerName user) {
+		// TODO Auto-generated method stub
+		
+	}
  
 }
