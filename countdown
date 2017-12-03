@@ -1,10 +1,11 @@
+
 import java.util.*;
 
 public class countdown
 {
-   public static void main(String[] args) 
+   public static void countdown() 
    {
-      Stack stack = new Stack();
+      Stack<Integer> stack = new Stack<Integer>();
       for (int i = 1; i <= 3; i++)
       {
          stack.push(i);
@@ -14,5 +15,6 @@ public class countdown
          System.out.println(stack.pop());
       }
          System.out.println("WELCOME TO BLACKJACK!");
+         System.out.println(" " );
    }
 }
