@@ -1,17 +1,14 @@
 import java.util.*;
 
-
 public class playerboard
 {
-   public <T> void playerboard(playerName user)
+   static int position = 1;
+   public static void playerboard(playerName player1)
    {
-	  int position = 1;
       Map<Integer, playerName> highscorelist = new HashMap<Integer, playerName>();
-      highscorelist.put(position, user); 
-      
-      System.out.println(" " );
-      System.out.println("Games played by users in order: ");
-	  System.out.println(highscorelist);
+      highscorelist.put(position, player1); 
+      System.out.println("Player Attemps: " );
+      System.out.println(highscorelist);
+      position++;
    }
-   
 }
