@@ -84,6 +84,7 @@ public class BlackjackDealer {
 
 					if (answer.equalsIgnoreCase(answerX)) {
 						isPlaying = false;
+						System.exit(i);
 					} else if (answer.equalsIgnoreCase(answerY)) 
 					{
 						isPlaying = true;
