@@ -4,8 +4,9 @@ public class playBlackjack {
  
     public static void main(String[] args) {
 
-    	Scanner input = new Scanner(System.in);
-    	BlackjackDealer play = new BlackjackDealer();
+        int boardposition = 1;
+    	  Scanner input = new Scanner(System.in);
+    	  BlackjackDealer play = new BlackjackDealer();
         HumanBlackjackPlayer player = new HumanBlackjackPlayer();
         
         countdown.countdown();
@@ -13,11 +14,14 @@ public class playBlackjack {
         String username = input.nextLine();
         playerName<String> user = new playerName<String>(username);
         playerboard position = new playerboard();
+        position.playerboard(user);
      
                  
         System.out.println("Score: "+play.playBlackjack(player, 10000, user));
         
-        position.playerboard(user);
+        
+        boardposition = boardposition + 1;
+        
     }
 
 	private static void AddingPlayerScore(playerName user) {
