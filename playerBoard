@@ -7,8 +7,10 @@ public class playerboard
    {
       Map<Integer, playerName> highscorelist = new HashMap<Integer, playerName>();
       highscorelist.put(position, player1); 
-      System.out.println("Player Attemps: " );
+      System.out.println("");
+      System.out.println("Player Attempts: " );
       System.out.println(highscorelist);
+      System.out.println("");
       position++;
    }
 }
